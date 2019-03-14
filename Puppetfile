@@ -4,6 +4,7 @@
 forge 'forge.puppetlabs.com'
 
 mod 'puppet-puppetboard'
+mod 'puppet-python', '2.2.2'
 mod 'puppetlabs-apache'
 mod 'puppetlabs-apt'
 mod 'puppetlabs-concat'
@@ -14,7 +15,6 @@ mod 'puppetlabs-puppetdb'
 mod 'puppetlabs-stdlib'
 mod 'puppetlabs-vcsrepo'
 mod 'stahnma-epel'
-mod 'stankevich-python'
 
 ################################################################################
 # Modules
