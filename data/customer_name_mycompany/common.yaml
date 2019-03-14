@@ -1,0 +1,3 @@
+---
+classes:
+  - "%{facts.customer_name}_role::%{facts.application_name}::%{facts.application_role}"

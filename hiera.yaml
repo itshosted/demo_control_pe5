@@ -1,0 +1,32 @@
+---
+version: 5
+
+defaults:
+  datadir: "data"
+
+# hierarchy is based on some custom facts
+#
+# customer_name     can be used if you have config for multiple customers
+# application_name  description for a application, like "mywebsite.com"
+# application_role  description of a role to make your application_name running like "webserver" / "database" / "mailserver"
+#
+# Some idea's, you can also add the customer_environment so you can set different setttings based on a environment.
+# like a hostname that is www.dev.example.com for your dev environment and www.example.com for your production environment
+#
+
+hierarchy:
+  - name: 'Yaml backend'
+    data_hash: yaml_data
+    paths:
+      - "nodes/%{trusted.certname}.yaml"
+      - "%{facts.customer_name}/applications/name_%{facts.application_name}/role_%{facts.application_role}/%{facts.application_instance}.yaml"
+      - "%{facts.customer_name}/applications/name_%{facts.application_name}/role_%{facts.application_role}/common.yaml"
+      - "%{facts.customer_name}/applications/name_%{facts.application_name}/common.yaml"
+      # OS based
+      - "os/%{facts.operatingsystem}/%{facts.operatingsystemmajrelease}.yaml"
+      - "os/%{facts.operatingsystem}/common.yaml"
+      - "osfamily/%{facts.osfamily}.yaml"
+      - "kernel/%{facts.kernel}"
+      - "virtual/%{facts.virtual}.yaml"
+      # All servers
+      - 'common.yaml'
