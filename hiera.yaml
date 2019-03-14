@@ -19,9 +19,10 @@ hierarchy:
     data_hash: yaml_data
     paths:
       - "nodes/%{trusted.certname}.yaml"
-      - "%{facts.customer_name}/applications/name_%{facts.application_name}/role_%{facts.application_role}/%{facts.application_instance}.yaml"
-      - "%{facts.customer_name}/applications/name_%{facts.application_name}/role_%{facts.application_role}/common.yaml"
-      - "%{facts.customer_name}/applications/name_%{facts.application_name}/common.yaml"
+      - "customer_name_%{facts.customer_name}/applications/name_%{facts.application_name}/role_%{facts.application_role}/%{facts.application_instance}.yaml"
+      - "customer_name_%{facts.customer_name}/applications/name_%{facts.application_name}/role_%{facts.application_role}/common.yaml"
+      - "customer_name_%{facts.customer_name}/applications/name_%{facts.application_name}/common.yaml"
+      - "customer_name_%{facts.customer_name}/common.yaml"
       # OS based
       - "os/%{facts.operatingsystem}/%{facts.operatingsystemmajrelease}.yaml"
       - "os/%{facts.operatingsystem}/common.yaml"
